@@ -430,6 +430,7 @@ def mark_owned(args):
                     passwd_query = ""
             else:
                 uname = line.upper().strip()
+                passwd_query = ""
 
             query = 'MATCH (n) WHERE n.name="{uname}" SET n.owned=true {notes} {passwd} RETURN n'.format(uname=uname,passwd=passwd_query,notes=note_string)
             r = do_query(args, query)
